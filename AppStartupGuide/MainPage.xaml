@@ -1,0 +1,131 @@
+﻿<Page x:Class="AppStartupGuide.MainPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:AppStartupGuide" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource DesignDataSource}}">
+        <Grid>
+            <MediaElement Source="SampleData/DesignDataSource/DesignDataSource_Files/Day1.mov" Stretch="UniformToFill" IsMuted="True" IsLooping="True">
+                <MediaElement.Clip>
+                    <RectangleGeometry x:Name="Geometry1" />
+                </MediaElement.Clip>
+            </MediaElement>
+            <Image Source="SampleData/DesignDataSource/DesignDataSource_Files/Week1.JPG" Stretch="UniformToFill">
+                <Image.Clip>
+                    <RectangleGeometry x:Name="Geometry2" />
+                </Image.Clip>
+            </Image>
+            <Image Source="SampleData/DesignDataSource/DesignDataSource_Files/Week2.JPG" Stretch="UniformToFill">
+                <Image.Clip>
+                    <RectangleGeometry x:Name="Geometry3" />
+                </Image.Clip>
+            </Image>
+            <Image Source="SampleData/DesignDataSource/DesignDataSource_Files/Week3.JPG" Stretch="UniformToFill">
+                <Image.Clip>
+                    <RectangleGeometry x:Name="Geometry4" />
+                </Image.Clip>
+            </Image>
+        </Grid>
+        <ScrollViewer x:Name="ScrollingHost">
+            <StackPanel>
+                <Grid Height="{x:Bind PageHeight, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
+                        <TextBlock Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+                			<Run Text="DAY" FontSize="32" />
+                			<Run Text="1" FontSize="64" FontWeight="ExtraLight" />
+                        </TextBlock>
+                        <SymbolIcon Symbol="Calendar" Foreground="White" d:LayoutOverrides="TopMargin, BottomMargin" />
+                        <TextBlock TextWrapping="WrapWholeWords" Text="This video was taken when I was 4 hours old." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
+                    </StackPanel>
+                    <Grid x:Name="Section1" Grid.Row="1" Background="White">
+                        <StackPanel Margin="40" HorizontalAlignment="Left">
+                            <SymbolIcon Symbol="Comment" Foreground="Black" HorizontalAlignment="Left" Margin="0,0,0,12" />
+                            <TextBlock TextWrapping="WrapWholeWords" Foreground="Black" FontSize="16" MaxWidth="360">
+                            	<Run Text="My name is Giselle Liu." />
+                            	<LineBreak />
+                            	<LineBreak />
+                            	<Run Text="I was 48cm and weighed 2.84kg. " />
+                            	<LineBreak />
+                            	<LineBreak />
+                            	<Run Text="Mum and dad looked a bit nervous, so I gave them a wink just to calm them down." />
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Height="{x:Bind PageHeight, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
+                        <TextBlock Foreground="#FFDDBB0C" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+                			<Run Text="WEEK" FontSize="32" />
+                			<Run Text="1" FontSize="64" FontWeight="ExtraLight" />
+                        </TextBlock>
+                        <SymbolIcon Symbol="Calendar" Foreground="#FFDDBB0C" d:LayoutOverrides="TopMargin, BottomMargin" />
+                        <TextBlock TextWrapping="WrapWholeWords" Text="It's been 4 days." Foreground="#FFDDBB0C" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
+                    </StackPanel>
+                    <Grid x:Name="Section2" Grid.Row="1" Background="#FFDDBB0C">
+                        <StackPanel Margin="40" HorizontalAlignment="Left">
+                            <SymbolIcon Symbol="Comment" Foreground="White" HorizontalAlignment="Left" Margin="0,0,0,12" />
+                            <TextBlock TextWrapping="WrapWholeWords" Foreground="White" FontSize="16" MaxWidth="360">
+                            	<Run Text="I saw sunlight coming through the window." />
+                            	<LineBreak />
+                            	<LineBreak />
+                            	<Run Text="For the first time." />
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Height="{x:Bind PageHeight, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
+                        <TextBlock Foreground="#FF2CCD71" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+                			<Run Text="WEEK" FontSize="32" />
+                			<Run Text="2" FontSize="64" FontWeight="ExtraLight" />
+                        </TextBlock>
+                        <SymbolIcon Symbol="Calendar" Foreground="#FF2CCD71" d:LayoutOverrides="TopMargin, BottomMargin" />
+                        <TextBlock TextWrapping="WrapWholeWords" Text="Lucky 9" Foreground="#FF2CCD71" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
+                    </StackPanel>
+                    <Grid x:Name="Section3" Grid.Row="1" Background="#FF2CCD71">
+                        <StackPanel Margin="40" HorizontalAlignment="Left">
+                            <SymbolIcon Symbol="Comment" Foreground="White" HorizontalAlignment="Left" Margin="0,0,0,12" />
+                            <TextBlock TextWrapping="WrapWholeWords" Foreground="White" FontSize="16" MaxWidth="360">
+                                <Run Text="Did they actually expect me to crawl... now?" />
+                				<LineBreak />
+                				<LineBreak />
+                				<Run Text="Parents..." />
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Height="{x:Bind PageHeight, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
+                        <TextBlock Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+                			<Run Text="WEEK" FontSize="32" />
+                			<Run Text="3" FontSize="64" FontWeight="ExtraLight" />
+                        </TextBlock>
+                        <SymbolIcon Symbol="Calendar" Foreground="White" d:LayoutOverrides="TopMargin, BottomMargin" />
+                        <TextBlock TextWrapping="WrapWholeWords" Text="Another week has gone." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
+                    </StackPanel>
+                    <Grid x:Name="Section4" Grid.Row="1" Background="White">
+                        <StackPanel Margin="40" HorizontalAlignment="Left">
+                            <SymbolIcon Symbol="Comment" Foreground="Black" HorizontalAlignment="Left" Margin="0,0,0,12" />
+                            <TextBlock TextWrapping="WrapWholeWords" Foreground="Black" FontSize="16" MaxWidth="360">
+                				<Run Text="This is going to be my signature pose." />
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
