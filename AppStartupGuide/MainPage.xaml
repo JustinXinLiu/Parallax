@@ -30,14 +30,6 @@
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
-                        <TextBlock Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
-                			<Run Text="DAY" FontSize="32" />
-                			<Run Text="1" FontSize="64" FontWeight="ExtraLight" />
-                        </TextBlock>
-                        <SymbolIcon Symbol="Calendar" Foreground="White" d:LayoutOverrides="TopMargin, BottomMargin" />
-                        <TextBlock TextWrapping="WrapWholeWords" Text="This video was taken when I was 4 hours old." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
-                    </StackPanel>
                     <Grid x:Name="Section1" Grid.Row="1" Background="White">
                         <StackPanel Margin="40" HorizontalAlignment="Left">
                             <SymbolIcon Symbol="Comment" Foreground="Black" HorizontalAlignment="Left" Margin="0,0,0,12" />
@@ -58,14 +50,6 @@
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
-                        <TextBlock Foreground="#FFDDBB0C" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
-                			<Run Text="WEEK" FontSize="32" />
-                			<Run Text="1" FontSize="64" FontWeight="ExtraLight" />
-                        </TextBlock>
-                        <SymbolIcon Symbol="Calendar" Foreground="#FFDDBB0C" d:LayoutOverrides="TopMargin, BottomMargin" />
-                        <TextBlock TextWrapping="WrapWholeWords" Text="It's been 4 days." Foreground="#FFDDBB0C" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
-                    </StackPanel>
                     <Grid x:Name="Section2" Grid.Row="1" Background="#FFDDBB0C">
                         <StackPanel Margin="40" HorizontalAlignment="Left">
                             <SymbolIcon Symbol="Comment" Foreground="White" HorizontalAlignment="Left" Margin="0,0,0,12" />
@@ -83,14 +67,6 @@
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
-                        <TextBlock Foreground="#FF2CCD71" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
-                			<Run Text="WEEK" FontSize="32" />
-                			<Run Text="2" FontSize="64" FontWeight="ExtraLight" />
-                        </TextBlock>
-                        <SymbolIcon Symbol="Calendar" Foreground="#FF2CCD71" d:LayoutOverrides="TopMargin, BottomMargin" />
-                        <TextBlock TextWrapping="WrapWholeWords" Text="Lucky 9" Foreground="#FF2CCD71" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
-                    </StackPanel>
                     <Grid x:Name="Section3" Grid.Row="1" Background="#FF2CCD71">
                         <StackPanel Margin="40" HorizontalAlignment="Left">
                             <SymbolIcon Symbol="Comment" Foreground="White" HorizontalAlignment="Left" Margin="0,0,0,12" />
@@ -108,14 +84,6 @@
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackPanel Margin="0,80,0,0" VerticalAlignment="Top">
-                        <TextBlock Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
-                			<Run Text="WEEK" FontSize="32" />
-                			<Run Text="3" FontSize="64" FontWeight="ExtraLight" />
-                        </TextBlock>
-                        <SymbolIcon Symbol="Calendar" Foreground="White" d:LayoutOverrides="TopMargin, BottomMargin" />
-                        <TextBlock TextWrapping="WrapWholeWords" Text="Another week has gone." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic" />
-                    </StackPanel>
                     <Grid x:Name="Section4" Grid.Row="1" Background="White">
                         <StackPanel Margin="40" HorizontalAlignment="Left">
                             <SymbolIcon Symbol="Comment" Foreground="Black" HorizontalAlignment="Left" Margin="0,0,0,12" />
@@ -127,5 +95,76 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
+        <Grid IsHitTestVisible="False">
+            <StackPanel x:Name="Section1Header" Margin="0,80,0,0" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+                <StackPanel>
+                    <StackPanel.RenderTransform>
+                        <CompositeTransform x:Name="Section1HeaderTransform" />
+                    </StackPanel.RenderTransform>
+                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+        			<Run Text="DAY" FontSize="32" />
+        			<Run Text="1" FontSize="64" FontWeight="ExtraLight" />
+                    </TextBlock>
+                    <SymbolIcon Symbol="Calendar" Foreground="White" d:LayoutOverrides="TopMargin, BottomMargin" />
+                </StackPanel>
+                <TextBlock TextWrapping="WrapWholeWords" Text="This video was taken when I was 4 hours old." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform x:Name="Section1HeaderContentTransform" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="Section2Header" Margin="0,80,0,0" VerticalAlignment="Top" Opacity="0" d:LayoutOverrides="VerticalAlignment">
+                <StackPanel>
+                    <StackPanel.RenderTransform>
+                        <CompositeTransform x:Name="Section2HeaderTransform" />
+                    </StackPanel.RenderTransform>
+                    <TextBlock Foreground="#FFDDBB0C" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+        			<Run Text="WEEK" FontSize="32" />
+        			<Run Text="1" FontSize="64" FontWeight="ExtraLight" />
+                    </TextBlock>
+                    <SymbolIcon Symbol="Calendar" Foreground="#FFDDBB0C" d:LayoutOverrides="TopMargin, BottomMargin" />
+                </StackPanel>
+                <TextBlock TextWrapping="WrapWholeWords" Text="It's been 4 days." Foreground="#FFDDBB0C" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform x:Name="Section2HeaderContentTransform" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="Section3Header" Margin="0,80,0,0" VerticalAlignment="Top" Opacity="0" d:LayoutOverrides="VerticalAlignment">
+                <StackPanel>
+                    <StackPanel.RenderTransform>
+                        <CompositeTransform x:Name="Section3HeaderTransform" />
+                    </StackPanel.RenderTransform>
+                    <TextBlock Foreground="#FF2CCD71" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+        			<Run Text="WEEK" FontSize="32" />
+        			<Run Text="2" FontSize="64" FontWeight="ExtraLight" />
+                    </TextBlock>
+                    <SymbolIcon Symbol="Calendar" Foreground="#FF2CCD71" d:LayoutOverrides="TopMargin, BottomMargin" />
+                </StackPanel>
+                <TextBlock TextWrapping="WrapWholeWords" Text="Lucky 9" Foreground="#FF2CCD71" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform x:Name="Section3HeaderContentTransform" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="Section4Header" Margin="0,80,0,0" VerticalAlignment="Top" Opacity="0" d:LayoutOverrides="VerticalAlignment">
+                <StackPanel>
+                    <StackPanel.RenderTransform>
+                        <CompositeTransform x:Name="Section4HeaderTransform" />
+                    </StackPanel.RenderTransform>
+                    <TextBlock Foreground="White" HorizontalAlignment="Center" FontWeight="SemiBold" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+        			<Run Text="WEEK" FontSize="32" />
+        			<Run Text="3" FontSize="64" FontWeight="ExtraLight" />
+                    </TextBlock>
+                    <SymbolIcon Symbol="Calendar" Foreground="White" d:LayoutOverrides="TopMargin, BottomMargin" />
+                </StackPanel>
+                <TextBlock TextWrapping="WrapWholeWords" Text="Another week has gone." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform x:Name="Section4HeaderContentTransform" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Page>

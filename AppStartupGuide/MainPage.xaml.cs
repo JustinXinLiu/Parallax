@@ -1,4 +1,5 @@
-﻿using Windows.Foundation;
+﻿using System;
+using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,8 +11,11 @@ namespace AppStartupGuide
     {
         #region private members
 
-        private const double OVER_PAN = 80d;
-        private static bool _loaded;
+        const double OVER_PAN = 80d;
+        const double FIXED_TRAVELLED_DISTANCE = 80d;
+        const double HEADER_MOVEMENT_FACTOR = -.5;
+        const double HEADER_CONTENT_MOVEMENT_FACTOR = -.25;
+        static bool _loaded;
 
         #endregion
 
@@ -26,7 +30,7 @@ namespace AppStartupGuide
 
             Loaded += (s, e) =>
             {
-                UpdateBounds();
+                UpdateBackgroundBounds();
 
                 _loaded = true;
             };
@@ -37,13 +41,15 @@ namespace AppStartupGuide
 
                 if (_loaded)
                 {
-                    UpdateBounds();
+                    UpdateBackgroundBounds();
                 }
             };
 
             ScrollingHost.ViewChanged += (s, e) =>
             {
-                UpdateBounds();
+                UpdateBackgroundBounds();
+
+                UpdateHeaders();
             };
         }
 
@@ -64,23 +70,48 @@ namespace AppStartupGuide
 
         #region methods
 
-        private void UpdateBounds()
+        void UpdateBackgroundBounds()
         {
             if (ScrollingHost.IsItemVisible(Section3))
             {
-                UpdateCurrentAndNext(this.Section3, Geometry3, Geometry4);
+                UpdateCurrentAndNext(Section3, Geometry3, Geometry4);
             }
-            else if (this.ScrollingHost.IsItemVisible(this.Section2))
+            else if (ScrollingHost.IsItemVisible(Section2))
             {
-                UpdateCurrentAndNext(this.Section2, Geometry2, Geometry3);
+                UpdateCurrentAndNext(Section2, Geometry2, Geometry3);
             }
-            else if (this.ScrollingHost.IsItemVisible(this.Section1))
+            else if (ScrollingHost.IsItemVisible(Section1))
             {
-                UpdateCurrentAndNext(this.Section1, Geometry1, Geometry2);
+                UpdateCurrentAndNext(Section1, Geometry1, Geometry2);
             }
         }
 
-        private void UpdateCurrentAndNext(Panel section, RectangleGeometry current, RectangleGeometry next)
+        void UpdateHeaders()
+        {
+            UpdateSectionHeader(Section1, Section1Header, Section1HeaderTransform, Section1HeaderContentTransform, 0);
+            UpdateSectionHeader(Section2, Section2Header, Section2HeaderTransform, Section2HeaderContentTransform, 1);
+            UpdateSectionHeader(Section3, Section3Header, Section3HeaderTransform, Section3HeaderContentTransform, 2);
+            UpdateSectionHeader(Section4, Section4Header, Section4HeaderTransform, Section4HeaderContentTransform, 3);
+        }
+
+        void UpdateSectionHeader(Panel section, Panel sectionHeader, CompositeTransform headerTransform, CompositeTransform headerContentTransform, double multiplier)
+        {
+            var travelledDistance = Math.Abs(ScrollingHost.VerticalOffset - ActualHeight * multiplier);
+            if (travelledDistance <= FIXED_TRAVELLED_DISTANCE)
+            {
+                sectionHeader.Opacity = 1;
+            }
+            else
+            {
+                var opacity = 1 - travelledDistance / sectionHeader.ActualHeight;
+                sectionHeader.Opacity = opacity;
+            }
+
+            headerTransform.TranslateY = (ScrollingHost.VerticalOffset - ActualHeight * multiplier) * HEADER_MOVEMENT_FACTOR;
+            headerContentTransform.TranslateY = (ScrollingHost.VerticalOffset - ActualHeight * multiplier) * HEADER_CONTENT_MOVEMENT_FACTOR;
+        }
+
+        void UpdateCurrentAndNext(Panel section, RectangleGeometry current, RectangleGeometry next)
         {
             var distance = ScrollingHost.DistanceFromTop(section);
 

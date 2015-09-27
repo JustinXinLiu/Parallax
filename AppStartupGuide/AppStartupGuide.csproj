@@ -94,7 +94,6 @@
     <None Include="SampleData\DesignDataSource\DesignDataSource.xsd" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimatedFlipViewItem.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -106,7 +105,6 @@
     <Compile Include="SampleData\DesignDataSource\DesignDataSource.xaml.cs">
       <DependentUpon>DesignDataSource.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AnimatedFlipView.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -138,10 +136,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SampleData\DesignDataSource\DesignDataSource.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

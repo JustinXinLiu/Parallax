@@ -48,7 +48,7 @@ namespace AppStartupGuide
         public static bool IsItemVisible(this FrameworkElement container, FrameworkElement element)
         {
             var elementBounds = element.TransformToVisual(container).TransformBounds(new Rect(0, 0, element.ActualWidth, element.ActualHeight));
-            var containerBounds = new Rect(0.0, 0.0, container.ActualWidth, container.ActualHeight);
+            var containerBounds = new Rect(0, 0, container.ActualWidth, container.ActualHeight);
 
             return (elementBounds.Top < containerBounds.Bottom && elementBounds.Bottom > containerBounds.Top);
         }
