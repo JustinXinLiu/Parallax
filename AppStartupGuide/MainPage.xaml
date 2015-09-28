@@ -107,7 +107,7 @@
                     </TextBlock>
                     <SymbolIcon Symbol="Calendar" Foreground="White" d:LayoutOverrides="TopMargin, BottomMargin" />
                 </StackPanel>
-                <TextBlock TextWrapping="WrapWholeWords" Text="This video was taken when I was 4 hours old." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic">
+                <TextBlock TextWrapping="WrapWholeWords" CacheMode="BitmapCache" Text="This video was taken when I was 4 hours old." Foreground="White" FontSize="18.667" Margin="64,24,64,0" TextAlignment="Center" FontStyle="Italic">
                     <TextBlock.RenderTransform>
                         <CompositeTransform x:Name="Section1HeaderContentTransform" />
                     </TextBlock.RenderTransform>
